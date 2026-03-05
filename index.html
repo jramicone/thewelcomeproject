@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Welcome Project | Founders Lounge</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #003da5;
+    --accent: #ffb81c;
+    --bg: #f8fafc;
+    --white: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .logo-box { display: flex; align-items: center; gap: 12px; }
+  .logo-img { height: 70px; }
+
+  header {
+    padding: 10rem 5% 5rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
+  }
+
+  h2.section-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-sub {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+  }
+
+  .hero-img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid #f1f5f9;
+  }
+
+  .card h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0.5rem 0;
+  }
+
+  .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+  /* PROBLEM SECTION */
+  .problem {
+    background: var(--white);
+    padding: 5rem 5%;
+  }
+
+  .problem-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .problem-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+  }
+
+  .problem-text p strong { color: var(--text-main); }
+
+  .research-box {
+    background: #f0f7ff;
+    border-left: 4px solid var(--primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .research-box h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .research-box p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+
+  /* SOLUTION SECTION */
+  .solution {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 5%;
+  }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .solution-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid #f1f5f9;
+  }
+
+  .solution-card .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .solution-card h4 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .solution-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+  /* GALLERY */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 5% 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ROADMAP */
+  .roadmap {
+    background: var(--white);
+    padding: 5rem 5%;
+  }
+
+  .roadmap-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .phase {
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .phase-num {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .phase h4 {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .phase p { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* BELONGING */
+  .belonging {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .belonging p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+  }
+
+  .belonging-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .belonging-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .belonging-list li::before {
+    content: "✓";
+    color: #10b981;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* BTN */
+  .btn {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--primary);
+    color: white;
+    padding: 6rem 5%;
+    text-align: center;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .cta h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+
+  .cta p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    max-width: 550px;
+    margin: 0 auto 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .problem-inner, .belonging { grid-template-columns: 1fr; gap: 2rem; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-box">
+    <img src="Logo.png" alt="Logo" class="logo-img">
+    <span style="font-weight: 800; color: var(--primary);">THE WELCOME PROJECT</span>
+  </div>
+  <div style="display: flex; gap: 12px;">
+    <a href="Cost-Breakdown.pdf" target="_blank" class="btn"
+       style="border: 2px solid var(--primary); color: var(--primary); padding: 0.6rem 1.2rem;">
+      COST ANALYSIS
+    </a>
+    <a href="Welcome-Project-Deck.pdf" target="_blank" class="btn"
+       style="border: 2px solid var(--primary); color: var(--primary); padding: 0.6rem 1.2rem;">
+      SLIDE DECK
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <h1>A New Third Place for Elmhurst University</h1>
+  <p class="hero-sub">A student-led initiative to transform the Founders Lounge into a vibrant, inclusive social hub — built by students, for students.</p>
+  <img src="Main-Rendering.jpg" alt="Hero Rendering" class="hero-img">
+</header>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="card">
+    <p style="font-weight: 700; color: #ef4444; font-size: 0.8rem; letter-spacing: 1px;">ANNUAL LOST REVENUE</p>
+    <h3>$18.6M</h3>
+    <p>Between 2023–2024, Elmhurst lost 538 students at an average of $34,655 per student in tuition revenue.</p>
+  </div>
+  <div class="card">
+    <p style="font-weight: 700; font-size: 0.8rem; letter-spacing: 1px;">TOTAL INVESTMENT</p>
+    <h3>$281,444</h3>
+    <p>Full build-out including café, smart lighting, furniture, murals, technology, and a Community Coordinator.</p>
+  </div>
+  <div class="card" style="background: #f0f7ff;">
+    <p style="font-weight: 700; color: #10b981; font-size: 0.8rem; letter-spacing: 1px;">BREAK-EVEN POINT</p>
+    <h3>9 Students</h3>
+    <p>Retaining just 9 students at average tuition covers the entire project cost — the ROI case is undeniable.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="problem-text">
+      <h2 class="section-title">The Problem: Students Have Nowhere to Belong</h2>
+      <p>Elmhurst University students face a <strong>community and belonging crisis</strong>. Outside of sports or Greek life, students have very little sense of community. Both commuter and resident students spend minimal time in campus spaces — they attend class, grab a meal, and leave.</p>
+      <p>The spaces that exist often feel like students are an afterthought. The <strong>Founders Lounge</strong> is too formal and sterile — cold, library-like, and frequently displaced by presentations and administrative meetings. <strong>The Roost</strong> is crowded, basement-level, and designed around eating, not socializing. Students are left with no comfortable, inviting space to simply exist and build relationships.</p>
+      <p>This lack of belonging directly drives unenrollment. Students need a reason to come and <em>stay</em> on campus beyond class obligations. That reason is a true <strong>Third Place</strong> — the living room between school and home where community is built organically.</p>
+    </div>
+    <div>
+      <div class="research-box">
+        <h4>Research — Brown &amp; Papp (2025)</h4>
+        <p>A study of 355 students found that sense of belonging <strong>declines significantly</strong> as students progress through college — most sharply among first-generation students, female students, and students from underrepresented racial and ethnic backgrounds.</p>
+      </div>
+      <div class="research-box">
+        <h4>Research — Portland State University (2020)</h4>
+        <p>Built informal social spaces <strong>directly influence students' sense of belonging</strong>. Institutions that invest in student-centered common areas see stronger peer connections and greater institutional attachment.</p>
+      </div>
+      <div class="research-box">
+        <h4>Research — Virginia Tech (2024)</h4>
+        <p>Third places are described as "the living room of society" — spaces easy to enter, inexpensive, and recurring. Virginia Tech's research confirms these spaces must be accessible to all students regardless of background or affiliation.</p>
+      </div>
+      <div class="research-box">
+        <h4>Precedent — University of Chicago</h4>
+        <p>UChicago's Ex Libris Café and Harper Library Lounges created informal spaces where students escape isolation, build friendships, and feel embedded in campus culture — the exact model The Welcome Project proposes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <h2 class="section-title" style="text-align:center;">The Solution: The Welcome Project</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin: 0 auto; font-size:1.05rem;">A bottom-up revitalization of the Founders Lounge — designed with students, run by students, and built to last.</p>
+  <div class="solution-grid">
+    <div class="solution-card">
+      <div class="icon">🏛️</div>
+      <h4>Revitalized Space</h4>
+      <p>The Founders Lounge is transformed with cozy furniture arranged for friend groups, colorful sensory-friendly lighting, student-created murals representing campus identities, and an indoor garden cultivated by biology and ecology students.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">☕</div>
+      <h4>Student Coffee Bar</h4>
+      <p>A Chartwells-operated coffee bar gives students a daily reason to spend time in the space. For 21+ events, the bar doubles as a revenue-generating alcohol bar — directly funding future student programming.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">🎉</div>
+      <h4>Student-Led Events</h4>
+      <p>A Student Community Board organizes events with no organization affiliation required: semi-formal dances, movie nights, indoor tailgates, live entertainment, vendor days, and major vs. major games — all without a chaperoned feel.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">📋</div>
+      <h4>Community Coordinator</h4>
+      <p>A new OBI-hired Community Coordinator ($49,920/yr) provides consistent staff oversight while keeping the space student-driven. This ensures accountability without the formal, institutional atmosphere that currently keeps students away.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">♿</div>
+      <h4>Fully Accessible</h4>
+      <p>ADA-accessible seating and layout in the elevator-accessible Frick Center. Quiet corners alongside social zones, sensory-friendly neutral lighting, and intentional furniture placement ensure every student feels welcome.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">🎨</div>
+      <h4>Student Identity on Display</h4>
+      <p>Art students design murals that reflect the diversity of campus life. Every inch of the space signals to students: <em>this was made for you, by people like you.</em> Belonging starts with seeing yourself in a space.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-item"><img src="Coffee-Bar.jpg" alt="Coffee Bar"></div>
+  <div class="gallery-item"><img src="Movie-Night.jpg" alt="Movie Night"></div>
+  <div class="gallery-item"><img src="Night-Event.jpg" alt="Night Event"></div>
+  <div class="gallery-item"><img src="Tailgate-Sports.jpg" alt="Tailgate Sports"></div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap">
+  <div class="roadmap-inner">
+    <h2 class="section-title" style="text-align:center;">Phased Rollout Plan</h2>
+    <p style="text-align:center; color:var(--text-muted); max-width:600px; margin: 0 auto; font-size:1.05rem;">From board approval to grand opening — a clear, actionable path to launch by Fall 2027.</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-num">Phase 1</div>
+        <h4>Approval &amp; Planning</h4>
+        <p>Fall 2025 – Spring 2026: Board approval, Community Coordinator hired, student surveys conducted, needs assessment completed, and initial design concepts drafted.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-num">Phase 2</div>
+        <h4>Design &amp; Build</h4>
+        <p>Summer 2026 – Spring 2027: Space finalized, floor plan drafted, budget approved. Furniture, décor, flooring, murals, and greenery planned and installed.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-num">Phase 3</div>
+        <h4>Technology &amp; Marketing</h4>
+        <p>Summer 2027: TVs, sound systems, coffee counter construction, and greenery installed. Student Community Board formed. Campus marketing rollout begins.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-num">Phase 4</div>
+        <h4>Grand Opening</h4>
+        <p>Fall 2027: Grand opening event launches the space. Weekly large-scale events activate the lounge and show students its full potential from day one.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-num">Phase 5</div>
+        <h4>Evaluate &amp; Improve</h4>
+        <p>Spring 2028 onward: Semesterly evaluation reports, KPI tracking — event attendance, daily occupancy, student feedback — and annual adjustments for sustainability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BELONGING -->
+<section>
+  <div class="belonging">
+    <div>
+      <h2 class="section-title">Why This Addresses Belonging</h2>
+      <p>The current campus model puts students in a passive role. Spaces feel like students are <em>permitted</em> to be there — not <em>invited</em>. Events are organization-gated, leaving independent students — especially commuters — with little to participate in and no community to call their own.</p>
+      <p>The Welcome Project flips this entirely. By involving students in the design, management, and programming of the space, it sends a clear message: <strong>this campus is yours</strong>. The Student Community Board gives every student agency without requiring long-term organizational commitment.</p>
+      <p>Large-scale, non-chaperoned events — semi-formals, concerts, movie nights, indoor tailgates — give students reasons to show up, get ready, and connect. The "build it and they will come" model isn't sufficient alone. But a well-designed space <em>plus</em> consistent, student-driven programming creates the community flywheel Elmhurst University needs to retain students and grow.</p>
+    </div>
+    <div>
+      <h3 style="font-weight:700; color:var(--primary); margin-bottom:1.5rem;">Alignment with EU Values</h3>
+      <ul class="belonging-list">
+        <li>Promotes community — a core Elmhurst University value</li>
+        <li>Supports student well-being and mental health</li>
+        <li>Bridges the commuter–resident belonging gap</li>
+        <li>Encourages equity and inclusion for underrepresented students</li>
+        <li>Enhances interpersonal engagement and personal growth</li>
+        <li>Strengthens campus culture across diverse student backgrounds</li>
+        <li>Prepares students for meaningful participation in a diverse society</li>
+        <li>Directly addresses the retention crisis with a measurable financial ROI</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Advance the Initiative</h2>
+  <p>Review the full cost breakdown and slide deck to see the complete proposal — including budget, timeline, funding sources, and KPIs.</p>
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="Cost-Breakdown.pdf" target="_blank" class="btn"
+       style="background: white; color: var(--primary);">
+      VIEW COST ANALYSIS
+    </a>
+    <a href="Welcome-Project-Deck.pdf" target="_blank" class="btn"
+       style="background: transparent; color: white; border: 2px solid white;">
+      VIEW SLIDE DECK
+    </a>
+  </div>
+</section>
+
+<footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.8rem; font-weight: 600;">
+  &copy; 2026 JON RAMICONE | THE WELCOME PROJECT
+</footer>
+
+</body>
+</html>
