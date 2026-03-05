@@ -41,7 +41,7 @@
   }
 
   .logo-box { display: flex; align-items: center; gap: 12px; }
-  .logo-img { height: 70px; }
+  .logo-img { height: 100px; }
 
   header {
     padding: 10rem 5% 5rem;
@@ -333,7 +333,10 @@
 <nav>
   <div class="logo-box">
     <img src="Logo.png" alt="Logo" class="logo-img">
-    <span style="font-weight: 800; color: var(--primary);">THE WELCOME PROJECT</span>
+    <span style="font-weight: 800; color: var(--primary); display: flex; flex-direction: column; line-height: 1.3;">
+      <span>THE WELCOME PROJECT</span>
+      <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); letter-spacing: 1px;">ELMHURST UNIVERSITY</span>
+    </span>
   </div>
   <div style="display: flex; gap: 12px;">
     <a href="Cost-Breakdown.pdf" target="_blank" class="btn"
@@ -349,7 +352,7 @@
 
 <!-- HERO -->
 <header>
-  <h1>A New Third Place for Elmhurst University</h1>
+  <h1>A New Third Place for<br>Elmhurst University</h1>
   <p class="hero-sub">A student-led initiative to transform the Founders Lounge into a vibrant, inclusive social hub — built by students, for students.</p>
   <img src="Main-Rendering.jpg" alt="Hero Rendering" class="hero-img">
 </header>
